@@ -1,0 +1,53 @@
+class Stack():
+    def __init__(self):
+        self.list = []
+    def push(self,x):
+        return self.list.append(x)
+    def is_empty(self):
+        if self.list == []:
+            return True
+        else:
+            return False
+    def pop(self):
+        if self.is_empty() == False:
+            self.list = self.list[:-1]
+            return self.list
+        else:
+            return "the stack is empty"
+
+def balanced_brackets(our_string):
+    our_stack = Stack()
+    for i in range(len(our_string)):
+        if our_string[i] == "{":
+            our_stack.push("{")
+        if our_string[i] == "}":
+            if our_stack.list[-1] == "}":
+                our_stack.pop()
+            else:
+                return False
+        if our_string[i] == "(":
+            our_stack.push("(")
+        if our_string[i] == ")":
+            if our_stack.list[-1] == ")":
+                our_stack.pop()
+            else:
+                return False
+        if our_string[i] == "[":
+            our_stack.push("[")
+        if our_string[i] == "]":
+            if our_stack.list[-1] == "]":
+                our_stack.pop()
+            else:
+                return False
+        if our_string[i] == "<":
+            our_stack.push("<")
+        if our_string[i] == ">":
+            if our_stack.list[-1] == ">":
+                our_stack.pop()
+            else:
+                return False
+    return True
+string1 = input()
+balanced_brackets(string1)
+
+
