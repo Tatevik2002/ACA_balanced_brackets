@@ -1,0 +1,41 @@
+class Stack():
+    def __init__(self):
+        self.list = []
+    def push(self,x):
+            return self.list.append(x)
+    def is_empty(self):
+        if self.list == []:
+            return True
+        else:
+            return False
+    def pop(self):
+        if self.is_empty() == False:
+            self.list = self.list[:-1]
+            return self.list
+        else:
+            return "the stack is empty"
+    def get_list(self):
+        return self.list
+
+class GetMin(Stack):
+    def __init__(self):
+        list1 = Stack.get_list(self)
+        self.list = list1
+    def get_min(self):
+        return self.list[-1]
+
+a = GetMin() 
+a.push(9)
+a.push(6)
+a.push(25)
+a.push(29)
+a.push(2)
+a.get_min()
+
+
+        
+
+
+
+        
+
